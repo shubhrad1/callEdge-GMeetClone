@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/peerjs@1.4.5/dist/peerjs.min.js" defer></script>
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script>
+        const ROOM_ID="<%= roomId %>"
+    </script>
+    <script src="script.js" defer></script>
+    <title>Vcall</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        #main
+        {
+            margin:0;
+            display: flex;
+            height: 100vh;
+            width:100vw;        
+        }
+        #video-room
+        {
+            display: flex;
+            width:70vw  ;
+            margin:none;
+            align-items: center;
+            
+
+        }
+        #video-grid
+        {
+            /* display: grid;
+            grid-template-columns: repeat(auto-fill,500px);
+            grid-auto-rows: 450px;
+            column-gap: 50px;
+            row-gap: 50px; */
+            max-height: 100vh;
+            flex-grow:1;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            padding:40px;
+        }
+        video{
+            max-width:47%;
+            max-height:43%;
+
+            object-fit: cover;
+            transform: rotateY(180deg);
+            -webkit-transform:rotateY(180deg); /* Safari and Chrome */
+            -moz-transform:rotateY(180deg); /* Firefox */
+            margin:1%;
+        }
+        #chat-room
+        {
+            position: fixed;
+            background-color: aqua;
+            height:100vh;
+            width:30vw;
+            right: 0;
+            top:0;
+        }
+        #chat-room h2 {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #input-area{
+            display: block;
+            position:absolute;
+            bottom:10px;
+            padding:12px;
+            width:100%;
+            margin-left:12px;
+            overflow-y: scroll;
+        }
+        #input-area input{
+            height:22px;
+            width:60%;    
+        }
+        #input-area button{
+            margin-left: 12px;
+            width:20%;
+            height:28px;
+        }
+        .message
+        {
+            background-color: aliceblue;
+            width: 80%;
+            margin-bottom: 12px;
+            border-radius: 0px 20px 20px 20px;
+            padding-bottom: 8px;
+        }
+        .message p
+        {
+            margin:15px;
+        }
+        .meta
+        {
+            color: rgb(83, 166, 243);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+<div id="video-room">
+    <div id="video-grid"></div>
+</div>
+<div id="chat-room">
+    <h2>Chat Room</h2>
+    <div id="input-area">
+        <form id="chat-form">
+            <div class="display-msg">
+                <!-- <div class="message">
+                <p class="meta">Author on xx/xx/xx</p>
+                <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse luctus, ante in egestas consequat, libero urna sodales leo, vel volutpat nisi ipsum sed leo.</p>
+                </div> -->
+            </div>
+            <input id="chatInput">
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</div>
+</div>
+    
+</body>
+</html>
