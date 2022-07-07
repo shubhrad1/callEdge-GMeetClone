@@ -1,4 +1,4 @@
-# VideoCall
+# CallEdge
 ## Easy Video Call, Text Chat and White Board
 
 - [x]  Video Call
